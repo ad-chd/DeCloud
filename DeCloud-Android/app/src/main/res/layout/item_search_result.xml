@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/list_item_padding_horizontal"
+    android:paddingVertical="@dimen/list_item_padding_vertical"
+    android:gravity="center_vertical"
+    android:background="?attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/icon_list"
+        android:layout_height="@dimen/icon_list"
+        android:src="@drawable/ic_file"
+        app:tint="@color/primary" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/space_2xl">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="filename.txt"
+            android:textSize="@dimen/text_body_large"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text_primary"
+            android:maxLines="1"
+            android:ellipsize="middle" />
+
+        <TextView
+            android:id="@+id/tvPath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="/path/to/file"
+            android:textSize="@dimen/text_hint"
+            android:textColor="@color/text_hint"
+            android:maxLines="1"
+            android:ellipsize="start"
+            android:layout_marginTop="@dimen/space_2xs" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivArrow"
+        android:layout_width="@dimen/icon_md"
+        android:layout_height="@dimen/icon_md"
+        android:src="@drawable/ic_arrow_right"
+        app:tint="@color/text_hint"
+        android:visibility="gone" />
+
+</LinearLayout>

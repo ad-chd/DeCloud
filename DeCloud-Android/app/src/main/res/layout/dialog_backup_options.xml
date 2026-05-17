@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/dialog_padding"
+    android:background="@color/surface">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Backup"
+        android:textSize="@dimen/text_stat"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/text_primary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_md"
+        android:text="Choose what to backup. All accessible files will be copied with their folder structure preserved."
+        android:textSize="@dimen/text_body"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="@dimen/space_2xs"
+        android:textColor="@color/text_secondary" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardInternalOnly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_5xl"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="@dimen/corner_card_tertiary"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/surface"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/card_stroke">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_3xl"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/icon_touch"
+                android:layout_height="@dimen/icon_touch"
+                android:src="@drawable/ic_storage"
+                app:tint="@color/primary" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/space_2xl">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Internal Storage Only"
+                    android:textSize="@dimen/text_heading"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:id="@+id/tvInternalSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scanning..."
+                    android:textSize="@dimen/text_caption"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="@dimen/space_2xs" />
+
+            </LinearLayout>
+
+            <RadioButton
+                android:id="@+id/radioInternalOnly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:buttonTint="@color/primary"
+                android:clickable="false" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardWithExternal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_xl"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="@dimen/corner_card_tertiary"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/surface"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/card_stroke">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_3xl"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/icon_touch"
+                android:layout_height="@dimen/icon_touch"
+                android:src="@drawable/ic_sd_card"
+                app:tint="@color/icon_downloads" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/space_2xl">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Internal + External Storage"
+                    android:textSize="@dimen/text_heading"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:id="@+id/tvExternalSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scanning..."
+                    android:textSize="@dimen/text_caption"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="@dimen/space_2xs" />
+
+            </LinearLayout>
+
+            <RadioButton
+                android:id="@+id/radioWithExternal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/primary"
+                android:clickable="false" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvNoExternalWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_lg"
+        android:text="No external storage detected"
+        android:textSize="@dimen/text_caption"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/warning"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_4xl"
+        android:text="This may take a while depending on your storage size."
+        android:textSize="@dimen/text_caption"
+        android:textColor="@color/text_secondary"
+        android:drawableStart="@drawable/ic_info"
+        android:drawablePadding="@dimen/space_lg"
+        android:gravity="center_vertical"
+        app:drawableTint="@color/text_hint" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_5xl"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_touch"
+            android:text="Cancel"
+            android:textSize="@dimen/text_body"
+            style="@style/Widget.Material3.Button.TextButton" />
+
+        <Button
+            android:id="@+id/btnStartBackup"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_touch"
+            android:layout_marginStart="@dimen/space_lg"
+            android:text="Start Backup"
+            android:textSize="@dimen/text_body" />
+
+    </LinearLayout>
+
+</LinearLayout>

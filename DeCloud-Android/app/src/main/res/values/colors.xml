@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Apple-inspired Light Theme Palette -->
+
+    <!-- Launcher icon adaptive background — pure black to match the logo's identity -->
+    <color name="ic_launcher_background">#000000</color>
+
+    <!-- Splash red accent — used for the glow pulse behind the logo on launch -->
+    <color name="splash_red">#FF1F1F</color>
+
+    <!-- Primary accent — refined blue, not too saturated -->
+    <color name="primary">#007AFF</color>
+    <color name="primary_dark">#0056CC</color>
+    <color name="primary_light">#E8F0FE</color>
+    <color name="accent">#FF9500</color>
+
+    <!-- Backgrounds — warm off-whites like iOS -->
+    <color name="background">#F2F2F7</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F2F2F7</color>
+
+    <!-- Text hierarchy — clean, high-contrast -->
+    <color name="text_primary">#1C1C1E</color>
+    <color name="text_secondary">#8E8E93</color>
+    <color name="text_hint">#AEAEB2</color>
+    <color name="text_hint_light">#C7C7CC</color>
+
+    <!-- File browser folder icon — muted, doesn't compete with text -->
+    <color name="folder_icon">#8E8E93</color>
+
+    <!-- Dividers — ultra-subtle -->
+    <color name="divider">#E5E5EA</color>
+
+    <!-- Semantic colors — iOS style -->
+    <color name="success">#34C759</color>
+    <color name="error">#FF3B30</color>
+    <color name="warning">#FF9500</color>
+
+    <!-- Neon accent used in the brand tagline ("Protect.") -->
+    <color name="tagline_accent">#39FF14</color>
+
+    <!-- Selection states -->
+    <color name="selection_highlight">#22007AFF</color>
+    <color name="highlight_blink">#33007AFF</color>
+
+    <!-- Glassmorphism elements -->
+    <color name="status_badge_bg">#14007AFF</color>
+    <color name="card_stroke">#1A000000</color>
+    <color name="glass_bg">#D9FFFFFF</color>
+    <color name="glass_stroke">#33FFFFFF</color>
+    <color name="toolbar_bg">#F8F8FA</color>
+    <color name="bottom_bar_bg">#F8F8FA</color>
+
+    <!-- Category icon colors — softer, muted tones -->
+    <color name="icon_images">#34C759</color>
+    <color name="icon_videos">#FF3B30</color>
+    <color name="icon_audio">#AF52DE</color>
+    <color name="icon_documents">#007AFF</color>
+    <color name="icon_downloads">#FF9500</color>
+    <color name="icon_apps">#5AC8FA</color>
+    <color name="icon_contacts">#FF2D55</color>
+    <color name="icon_messages">#30D158</color>
+    <color name="icon_call_logs">#FF9500</color>
+
+    <!-- Category icon background tints (10% opacity fills) -->
+    <color name="icon_bg_images">#1A34C759</color>
+    <color name="icon_bg_videos">#1AFF3B30</color>
+    <color name="icon_bg_audio">#1AAF52DE</color>
+    <color name="icon_bg_documents">#1A007AFF</color>
+    <color name="icon_bg_downloads">#1AFF9500</color>
+    <color name="icon_bg_apps">#1A5AC8FA</color>
+    <color name="icon_bg_contacts">#1AFF2D55</color>
+    <color name="icon_bg_messages">#1A30D158</color>
+    <color name="icon_bg_call_logs">#1AFF9500</color>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         STATUS / STATE COLORS
+         ════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Category card states -->
+    <color name="state_selected_bg">#E8F5E9</color>
+    <color name="state_selected_stroke">#4CAF50</color>
+    <color name="state_denied_bg">#FBE9E7</color>
+    <color name="state_denied_stroke">#E53935</color>
+
+    <!-- Mode selection accents -->
+    <color name="mode_wifi_accent">#2196F3</color>
+    <color name="mode_adb_accent">#4CAF50</color>
+
+    <!-- Connection warning banners -->
+    <color name="banner_warning_bg">#FEF3C7</color>
+    <color name="banner_warning_text">#92400E</color>
+    <color name="banner_hotspot_bg">#E8F5E9</color>
+    <color name="banner_hotspot_text">#2E7D32</color>
+    <color name="banner_wifi_bg">#E3F2FD</color>
+    <color name="banner_wifi_text">#1565C0</color>
+    <color name="banner_usb_bg">#E3F2FD</color>
+    <color name="banner_usb_text">#1565C0</color>
+    <color name="banner_error_bg">#FCE4EC</color>
+    <color name="banner_error_text">#C62828</color>
+
+    <!-- Transfer states -->
+    <color name="transfer_ready_bg">#E8F5E9</color>
+    <color name="transfer_ready_text">#2E7D32</color>
+    <color name="transfer_active_bg">#E3F2FD</color>
+    <color name="transfer_active_text">#1565C0</color>
+
+    <!-- Overlay / scrim -->
+    <color name="scrim">#80000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Ripple -->
+    <color name="ripple_primary">#22007AFF</color>
+
+    <!-- Disabled state -->
+    <color name="disabled_bg">#F2F2F7</color>
+    <color name="disabled_text">#C7C7CC</color>
+</resources>

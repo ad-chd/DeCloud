@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Clean toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/background"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Edit Selection"
+        app:titleTextColor="@color/text_primary"
+        app:navigationIconTint="@color/text_primary" />
+
+    <!-- Summary header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_5xl"
+        android:paddingVertical="@dimen/space_3xl"
+        android:background="@color/surface"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSelectionSummary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 files"
+                android:textSize="@dimen/text_heading_large"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/tvTotalSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 B"
+                android:textSize="@dimen/text_body"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="@dimen/space_2xs" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnClearAll"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/icon_action"
+            android:text="Clear All"
+            android:textSize="@dimen/text_caption"
+            style="@style/Widget.Material3.Button.TextButton" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/stroke_hairline"
+        android:background="@color/divider" />
+
+    <!-- Content -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/recycler_bottom_padding" />
+
+        <TextView
+            android:id="@+id/tvEmptyState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="No items selected"
+            android:textSize="@dimen/text_heading"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text_hint"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <!-- Bottom bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/space_5xl"
+        android:paddingVertical="@dimen/space_3xl"
+        android:background="@drawable/bg_bottom_bar"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Uncheck to remove category"
+            android:textSize="@dimen/text_caption"
+            android:textColor="@color/text_hint" />
+
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height_primary"
+            android:text="Done"
+            android:textSize="@dimen/text_body" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+<!-- Full-screen loading overlay — blocks all interaction during category removal -->
+<FrameLayout
+    android:id="@+id/loadingOverlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:clickable="true"
+    android:focusable="true"
+    android:visibility="gone"
+    android:elevation="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp"
+        android:background="@drawable/bg_loading_card"
+        android:elevation="4dp">
+
+        <ProgressBar
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            style="?android:attr/progressBarStyle" />
+
+        <TextView
+            android:id="@+id/tvLoadingMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Removing files..."
+            android:textSize="@dimen/text_body"
+            android:textColor="@color/text_primary" />
+
+    </LinearLayout>
+
+</FrameLayout>
+
+</FrameLayout>

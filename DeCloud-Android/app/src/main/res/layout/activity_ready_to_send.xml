@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Clean toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/background"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="Ready to Send"
+            app:titleTextColor="@color/text_primary"
+            app:navigationIconTint="@color/text_primary" />
+
+        <!-- Connection warning -->
+        <TextView
+            android:id="@+id/connectionWarning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/screen_padding_horizontal"
+            android:paddingVertical="@dimen/list_item_padding_vertical"
+            android:background="@color/banner_warning_bg"
+            android:textColor="@color/banner_warning_text"
+            android:textSize="@dimen/text_body"
+            android:fontFamily="sans-serif"
+            android:visibility="gone" />
+
+        <!-- Summary card — glass style -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/summaryCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_padding_horizontal"
+            android:layout_marginTop="@dimen/space_md"
+            android:layout_marginBottom="@dimen/space_4xl"
+            app:cardCornerRadius="@dimen/corner_card_primary"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/surface"
+            app:strokeWidth="@dimen/stroke_hairline"
+            app:strokeColor="@color/card_stroke">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/card_padding">
+
+                <LinearLayout
+                    android:id="@+id/layoutFolderStat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tvFolderCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="@dimen/text_stat"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/primary"
+                        android:maxLines="1"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Folders"
+                        android:textSize="@dimen/text_hint"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="@dimen/space_2xs" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/dividerFolderFile"
+                    android:layout_width="@dimen/stroke_hairline"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvFileCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="@dimen/text_stat"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/primary"
+                        android:maxLines="1"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Files"
+                        android:textSize="@dimen/text_hint"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="@dimen/space_2xs" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/stroke_hairline"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvTotalSize"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0 MB"
+                        android:textSize="@dimen/text_stat"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/primary"
+                        android:maxLines="1"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Size"
+                        android:textSize="@dimen/text_hint"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="@dimen/space_2xs" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Selection header -->
+        <TextView
+            android:id="@+id/tvSelectionHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Selection"
+            android:textSize="@dimen/text_body_large"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_primary"
+            android:layout_marginHorizontal="@dimen/space_5xl"
+            android:layout_marginBottom="@dimen/space_lg" />
+
+        <!-- File list -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewFiles"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="@dimen/screen_padding_horizontal"
+            android:background="@drawable/bg_glass_card"
+            android:clipToPadding="false"
+            android:padding="@dimen/space_md" />
+
+        <!-- Bottom actions -->
+        <FrameLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/bottom_bar_padding_horizontal"
+            android:paddingVertical="@dimen/space_4xl"
+            android:background="@drawable/bg_bottom_bar">
+
+            <!-- Ready state -->
+            <LinearLayout
+                android:id="@+id/layoutReady"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnEditSelection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height_primary"
+                    android:text="Edit Selection"
+                    android:textSize="@dimen/text_body"
+                    style="@style/Widget.Material3.Button.OutlinedButton" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height_primary"
+                    android:text="Start Transfer"
+                    android:textSize="@dimen/text_body" />
+
+            </LinearLayout>
+
+            <!-- Waiting state -->
+            <LinearLayout
+                android:id="@+id/layoutWaiting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:layout_width="@dimen/icon_touch"
+                    android:layout_height="@dimen/icon_touch"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/primary" />
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Waiting for PC to connect..."
+                    android:textSize="@dimen/text_heading"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="@dimen/space_4xl" />
+
+                <TextView
+                    android:id="@+id/tvServerAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="192.168.x.x"
+                    android:textSize="@dimen/text_stat"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/primary"
+                    android:layout_marginTop="@dimen/space_xl"
+                    android:background="@drawable/bg_glass_card"
+                    android:paddingHorizontal="@dimen/space_5xl"
+                    android:paddingVertical="@dimen/space_xl"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvConnectionHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter this IP in the PC app, or it will auto-connect"
+                    android:textSize="@dimen/text_caption"
+                    android:textColor="@color/text_secondary"
+                    android:textAlignment="center"
+                    android:layout_marginTop="@dimen/space_lg"
+                    android:layout_marginHorizontal="@dimen/screen_padding_horizontal"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvTapToCopy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap IP to copy"
+                    android:textSize="@dimen/text_hint"
+                    android:textColor="@color/text_hint"
+                    android:layout_marginTop="@dimen/space_sm"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height_primary"
+                    android:text="Cancel"
+                    android:layout_marginTop="@dimen/space_4xl"
+                    style="@style/Widget.Material3.Button.OutlinedButton" />
+
+            </LinearLayout>
+
+            <!-- Transferring state -->
+            <LinearLayout
+                android:id="@+id/layoutTransferring"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvProgressPercent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:textSize="@dimen/text_title"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/primary" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/tvSpeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 MB/s"
+                        android:textSize="@dimen/text_body"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" · "
+                        android:textColor="@color/text_hint" />
+
+                    <TextView
+                        android:id="@+id/tvEta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0s left"
+                        android:textSize="@dimen/text_body"
+                        android:textColor="@color/text_secondary" />
+
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/progress_bar_height"
+                    android:layout_marginVertical="@dimen/space_2xl"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressTint="@color/primary"
+                    android:progressBackgroundTint="@color/divider" />
+
+                <TextView
+                    android:id="@+id/tvCurrentFile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sending: file.jpg"
+                    android:textSize="@dimen/text_body"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/text_primary"
+                    android:singleLine="true"
+                    android:ellipsize="middle" />
+
+                <TextView
+                    android:id="@+id/tvFileProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="File 1 of 10"
+                    android:textSize="@dimen/text_caption"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="@dimen/space_xs" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/space_4xl">
+
+                    <Button
+                        android:id="@+id/btnCancelTransfer"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/button_height_primary"
+                        android:layout_weight="1"
+                        android:text="Cancel"
+                        android:textSize="@dimen/text_body"
+                        style="@style/Widget.Material3.Button.OutlinedButton" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Complete state — scrollable to ensure buttons are always accessible -->
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/layoutComplete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/space_xl">
+
+                        <ImageView
+                            android:id="@+id/ivCompleteIcon"
+                            android:layout_width="@dimen/icon_action"
+                            android:layout_height="@dimen/icon_action"
+                            android:src="@drawable/ic_success" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/space_xl">
+
+                            <TextView
+                                android:id="@+id/tvCompleteTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Transfer Complete"
+                                android:textSize="@dimen/text_subtitle"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:id="@+id/tvCompleteMessage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="150 files transferred"
+                                android:textSize="@dimen/text_body"
+                                android:textColor="@color/text_secondary"
+                                android:layout_marginTop="@dimen/space_2xs" />
+
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:id="@+id/btnCloseComplete"
+                            android:layout_width="@dimen/icon_action"
+                            android:layout_height="@dimen/icon_action"
+                            android:src="@drawable/ic_close"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="@dimen/space_md"
+                            android:contentDescription="Close"
+                            app:tint="@color/text_secondary" />
+
+                    </LinearLayout>
+
+                    <!-- Transfer stats card -->
+                    <LinearLayout
+                        android:id="@+id/layoutTransferStats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/card_padding_compact"
+                        android:background="@drawable/bg_glass_card"
+                        android:layout_marginBottom="@dimen/space_xl">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tvTransferredCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="150"
+                                android:textSize="@dimen/text_stat"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/success"
+                                android:maxLines="1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Transferred"
+                                android:textSize="@dimen/text_hint"
+                                android:textColor="@color/text_secondary" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="@dimen/stroke_hairline"
+                            android:layout_height="match_parent"
+                            android:background="@color/divider" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tvFailedCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="@dimen/text_stat"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/error"
+                                android:maxLines="1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Failed"
+                                android:textSize="@dimen/text_hint"
+                                android:textColor="@color/text_secondary" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="@dimen/stroke_hairline"
+                            android:layout_height="match_parent"
+                            android:background="@color/divider" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tvTransferTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1m 30s"
+                                android:textSize="@dimen/text_stat"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/primary"
+                                android:maxLines="1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Duration"
+                                android:textSize="@dimen/text_hint"
+                                android:textColor="@color/text_secondary" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvResultsHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="File Details"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="@dimen/space_md" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewResults"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/result_list_height"
+                        android:background="@drawable/bg_glass_card"
+                        android:layout_marginBottom="@dimen/space_xl" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/btnSaveLog"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/button_height_primary"
+                            android:text="Save Log"
+                            android:textSize="@dimen/text_body"
+                            android:layout_marginEnd="@dimen/space_md"
+                            style="@style/Widget.Material3.Button.TonalButton" />
+
+                        <Button
+                            android:id="@+id/btnReset"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/button_height_primary"
+                            android:text="New Transfer"
+                            android:textSize="@dimen/text_body"
+                            android:layout_marginEnd="@dimen/space_md"
+                            style="@style/Widget.Material3.Button.OutlinedButton" />
+
+                        <Button
+                            android:id="@+id/btnDone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/button_height_primary"
+                            android:text="Done"
+                            android:textSize="@dimen/text_body" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <!-- Error state -->
+            <LinearLayout
+                android:id="@+id/layoutError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/btnCloseError"
+                    android:layout_width="@dimen/icon_action"
+                    android:layout_height="@dimen/icon_action"
+                    android:layout_gravity="end"
+                    android:src="@drawable/ic_close"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="@dimen/space_md"
+                    android:contentDescription="Close"
+                    app:tint="@color/text_secondary" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_large"
+                        android:layout_height="@dimen/icon_large"
+                        android:src="@drawable/ic_error"
+                        app:tint="@color/error" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Transfer Failed"
+                        android:textSize="@dimen/text_title_error"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginTop="@dimen/space_4xl" />
+
+                    <TextView
+                        android:id="@+id/tvErrorMessage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="An error occurred"
+                        android:textSize="@dimen/text_body"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginTop="@dimen/space_md"
+                        android:gravity="center" />
+
+                    <Button
+                        android:id="@+id/btnSaveErrorLog"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height_primary"
+                        android:text="Save Log"
+                        android:textSize="@dimen/text_body"
+                        android:layout_marginTop="@dimen/space_4xl"
+                        android:visibility="gone"
+                        style="@style/Widget.Material3.Button.TonalButton" />
+
+                    <Button
+                        android:id="@+id/btnRetry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height_primary"
+                        android:text="Try Again"
+                        android:textSize="@dimen/text_body"
+                        android:layout_marginTop="@dimen/space_3xl" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- Loading overlay -->
+    <LinearLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/background"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ProgressBar
+            android:layout_width="@dimen/icon_circle_bg"
+            android:layout_height="@dimen/icon_circle_bg"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/primary" />
+
+        <TextView
+            android:id="@+id/tvLoadingMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading files..."
+            android:textSize="@dimen/text_subtitle"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="@dimen/space_6xl" />
+
+        <TextView
+            android:id="@+id/tvLoadingDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please wait"
+            android:textSize="@dimen/text_body"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="@dimen/space_md" />
+
+    </LinearLayout>
+
+</FrameLayout>

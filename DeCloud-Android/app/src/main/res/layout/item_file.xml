@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/list_item_padding_horizontal"
+    android:paddingVertical="@dimen/list_item_padding_vertical"
+    android:gravity="center_vertical"
+    android:background="?attr/selectableItemBackground">
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_2xl"
+        android:buttonTint="@color/primary"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/icon_action"
+        android:layout_height="@dimen/icon_action"
+        android:src="@drawable/ic_folder_outline"
+        app:tint="@color/folder_icon" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/space_2xl">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Filename.jpg"
+            android:textSize="@dimen/text_body_large"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text_primary"
+            android:singleLine="true"
+            android:ellipsize="middle" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                android:id="@+id/tvSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2.4 MB"
+                android:textSize="@dimen/text_caption"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" · "
+                android:textSize="@dimen/text_caption"
+                android:textColor="@color/text_hint" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jan 10, 2024"
+                android:textSize="@dimen/text_caption"
+                android:textColor="@color/text_secondary" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivArrow"
+        android:layout_width="@dimen/icon_action"
+        android:layout_height="@dimen/icon_action"
+        android:padding="@dimen/space_lg"
+        android:src="@drawable/ic_arrow_right"
+        app:tint="@color/text_hint"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:visibility="gone" />
+
+</LinearLayout>

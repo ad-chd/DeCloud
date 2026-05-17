@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/background">
+
+        <!-- Header — clean, no solid color bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/dialog_padding"
+            android:paddingTop="@dimen/space_3xl"
+            android:paddingBottom="@dimen/space_3xl"
+            android:background="@color/background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvAppName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="DeCloud"
+                    android:textSize="@dimen/text_title"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="-0.02"
+                    android:textColor="@color/text_primary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="@dimen/space_2xs" />
+
+                <ImageButton
+                    android:id="@+id/btnGlobalSearch"
+                    android:layout_width="@dimen/icon_action"
+                    android:layout_height="@dimen/icon_action"
+                    android:src="@drawable/ic_search"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="@dimen/space_md"
+                    android:contentDescription="Search files"
+                    app:tint="@color/text_secondary" />
+
+                <ImageButton
+                    android:id="@+id/btnThemeToggle"
+                    android:layout_width="@dimen/icon_action"
+                    android:layout_height="@dimen/icon_action"
+                    android:src="@drawable/ic_dark_mode"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="@dimen/space_md"
+                    android:contentDescription="Toggle theme"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvTagline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transfer. Protect. Repeat."
+                android:textSize="@dimen/text_body_large"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="@dimen/space_2xs" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:clipToPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/screen_padding_horizontal"
+                android:paddingBottom="@dimen/space_5xl">
+
+                <!-- Full Backup card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnFullBackup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/corner_card_primary"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:strokeWidth="@dimen/stroke_hairline"
+                    app:strokeColor="@color/card_stroke"
+                    android:layout_marginBottom="@dimen/space_xl">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/card_padding"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_touch"
+                            android:layout_height="@dimen/icon_touch">
+                            <View
+                                android:layout_width="@dimen/icon_touch"
+                                android:layout_height="@dimen/icon_touch"
+                                android:background="@drawable/bg_icon_circle"
+                                android:backgroundTint="@color/icon_bg_documents" />
+                            <ImageView
+                                android:layout_width="@dimen/icon_standard"
+                                android:layout_height="@dimen/icon_standard"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_full_backup"
+                                app:tint="@color/icon_documents" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/space_3xl">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Full Backup"
+                                android:textSize="@dimen/text_heading_large"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Internal + External storage to PC"
+                                android:textSize="@dimen/text_body"
+                                android:textColor="@color/text_secondary"
+                                android:layout_marginTop="@dimen/space_2xs" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_nav"
+                            android:layout_height="@dimen/icon_nav"
+                            android:src="@drawable/ic_arrow_right"
+                            app:tint="@color/text_hint" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Browse Files card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnBrowseFiles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/corner_card_primary"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:strokeWidth="@dimen/stroke_hairline"
+                    app:strokeColor="@color/card_stroke"
+                    android:layout_marginBottom="@dimen/space_xl">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/card_padding"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_touch"
+                            android:layout_height="@dimen/icon_touch">
+                            <View
+                                android:layout_width="@dimen/icon_touch"
+                                android:layout_height="@dimen/icon_touch"
+                                android:background="@drawable/bg_icon_circle"
+                                android:backgroundTint="@color/icon_bg_downloads" />
+                            <ImageView
+                                android:layout_width="@dimen/icon_standard"
+                                android:layout_height="@dimen/icon_standard"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_folder"
+                                app:tint="@color/icon_downloads" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/space_3xl">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Send to PC"
+                                android:textSize="@dimen/text_heading_large"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Select files and folders to send"
+                                android:textSize="@dimen/text_body"
+                                android:textColor="@color/text_secondary"
+                                android:layout_marginTop="@dimen/space_2xs" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_nav"
+                            android:layout_height="@dimen/icon_nav"
+                            android:src="@drawable/ic_arrow_right"
+                            app:tint="@color/text_hint" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Receive from PC card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnReceiveFromPc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/corner_card_primary"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:strokeWidth="@dimen/stroke_hairline"
+                    app:strokeColor="@color/card_stroke"
+                    android:layout_marginBottom="@dimen/space_6xl">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/card_padding"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_circle_bg"
+                            android:layout_height="@dimen/icon_circle_bg"
+                            android:src="@drawable/ic_download"
+                            app:tint="@color/primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/space_3xl">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Receive from PC"
+                                android:textSize="@dimen/text_heading_large"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Receive files sent from your PC"
+                                android:textSize="@dimen/text_body"
+                                android:textColor="@color/text_secondary"
+                                android:layout_marginTop="@dimen/space_2xs" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_nav"
+                            android:layout_height="@dimen/icon_nav"
+                            android:src="@drawable/ic_arrow_right"
+                            app:tint="@color/text_hint" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categories"
+                    android:textSize="@dimen/text_title_error"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="-0.01"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="@dimen/space_3xl" />
+
+                <!-- Row 1: Images, Videos, Audio -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/space_lg">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnImages"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/corner_card_category"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:strokeWidth="@dimen/stroke_hairline"
+                        app:strokeColor="@color/card_stroke"
+                        android:layout_marginEnd="@dimen/category_card_gap">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/space_4xl"
+                            android:paddingHorizontal="@dimen/space_xl"
+                            android:gravity="center">
+
+                            <FrameLayout
+                                android:layout_width="@dimen/icon_touch"
+                                android:layout_height="@dimen/icon_touch">
+                                <View
+                                    android:layout_width="@dimen/icon_touch"
+                                    android:layout_height="@dimen/icon_touch"
+                                    android:background="@drawable/bg_icon_circle"
+                                    android:backgroundTint="@color/icon_bg_images" />
+                                <ImageView
+                                    android:layout_width="@dimen/icon_standard"
+                                    android:layout_height="@dimen/icon_standard"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_image"
+                                    app:tint="@color/icon_images" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Images"
+                                android:textSize="@dimen/text_caption"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary"
+                                android:layout_marginTop="@dimen/space_lg"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnVideos"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/corner_card_category"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:strokeWidth="@dimen/stroke_hairline"
+                        app:strokeColor="@color/card_stroke"
+                        android:layout_marginHorizontal="@dimen/category_card_gap">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/space_4xl"
+                            android:paddingHorizontal="@dimen/space_xl"
+                            android:gravity="center">
+
+                            <FrameLayout
+                                android:layout_width="@dimen/icon_touch"
+                                android:layout_height="@dimen/icon_touch">
+                                <View
+                                    android:layout_width="@dimen/icon_touch"
+                                    android:layout_height="@dimen/icon_touch"
+                                    android:background="@drawable/bg_icon_circle"
+                                    android:backgroundTint="@color/icon_bg_videos" />
+                                <ImageView
+                                    android:layout_width="@dimen/icon_standard"
+                                    android:layout_height="@dimen/icon_standard"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_video"
+                                    app:tint="@color/icon_videos" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Videos"
+                                android:textSize="@dimen/text_caption"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary"
+                                android:layout_marginTop="@dimen/space_lg"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnAudio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/corner_card_category"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:strokeWidth="@dimen/stroke_hairline"
+                        app:strokeColor="@color/card_stroke"
+                        android:layout_marginStart="@dimen/category_card_gap">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/space_4xl"
+                            android:paddingHorizontal="@dimen/space_xl"
+                            android:gravity="center">
+
+                            <FrameLayout
+                                android:layout_width="@dimen/icon_touch"
+                                android:layout_height="@dimen/icon_touch">
+                                <View
+                                    android:layout_width="@dimen/icon_touch"
+                                    android:layout_height="@dimen/icon_touch"
+                                    android:background="@drawable/bg_icon_circle"
+                                    android:backgroundTint="@color/icon_bg_audio" />
+                                <ImageView
+                                    android:layout_width="@dimen/icon_standard"
+                                    android:layout_height="@dimen/icon_standard"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_audio"
+                                    app:tint="@color/icon_audio" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Audio"
+                                android:textSize="@dimen/text_caption"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary"
+                                android:layout_marginTop="@dimen/space_lg"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <!-- Row 2: Documents, Downloads, Apps -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/space_lg">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnDocuments"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/corner_card_category"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:strokeWidth="@dimen/stroke_hairline"
+                        app:strokeColor="@color/card_stroke"
+                        android:layout_marginEnd="@dimen/category_card_gap">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/space_4xl"
+                            android:paddingHorizontal="@dimen/space_xl"
+                            android:gravity="center">
+
+                            <FrameLayout
+                                android:layout_width="@dimen/icon_touch"
+                                android:layout_height="@dimen/icon_touch">
+                                <View
+                                    android:layout_width="@dimen/icon_touch"
+                                    android:layout_height="@dimen/icon_touch"
+                                    android:background="@drawable/bg_icon_circle"
+                                    android:backgroundTint="@color/icon_bg_documents" />
+                                <ImageView
+                                    android:layout_width="@dimen/icon_standard"
+                                    android:layout_height="@dimen/icon_standard"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_document"
+                                    app:tint="@color/icon_documents" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Documents"
+                                android:textSize="@dimen/text_caption"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary"
+                                android:layout_marginTop="@dimen/space_lg"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnDownloads"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/corner_card_category"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:strokeWidth="@dimen/stroke_hairline"
+                        app:strokeColor="@color/card_stroke"
+                        android:layout_marginHorizontal="@dimen/category_card_gap">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/space_4xl"
+                            android:paddingHorizontal="@dimen/space_xl"
+                            android:gravity="center">
+
+                            <FrameLayout
+                                android:layout_width="@dimen/icon_touch"
+                                android:layout_height="@dimen/icon_touch">
+                                <View
+                                    android:layout_width="@dimen/icon_touch"
+                                    android:layout_height="@dimen/icon_touch"
+                                    android:background="@drawable/bg_icon_circle"
+                                    android:backgroundTint="@color/icon_bg_downloads" />
+                                <ImageView
+                                    android:layout_width="@dimen/icon_standard"
+                                    android:layout_height="@dimen/icon_standard"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_download"
+                                    app:tint="@color/icon_downloads" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Downloads"
+                                android:textSize="@dimen/text_caption"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary"
+                                android:layout_marginTop="@dimen/space_lg"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnApps"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/corner_card_category"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:strokeWidth="@dimen/stroke_hairline"
+                        app:strokeColor="@color/card_stroke"
+                        android:layout_marginStart="@dimen/category_card_gap">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/space_4xl"
+                            android:paddingHorizontal="@dimen/space_xl"
+                            android:gravity="center">
+
+                            <FrameLayout
+                                android:layout_width="@dimen/icon_touch"
+                                android:layout_height="@dimen/icon_touch">
+                                <View
+                                    android:layout_width="@dimen/icon_touch"
+                                    android:layout_height="@dimen/icon_touch"
+                                    android:background="@drawable/bg_icon_circle"
+                                    android:backgroundTint="@color/icon_bg_apps" />
+                                <ImageView
+                                    android:layout_width="@dimen/icon_standard"
+                                    android:layout_height="@dimen/icon_standard"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_apk"
+                                    app:tint="@color/icon_apps" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Apps"
+                                android:textSize="@dimen/text_caption"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary"
+                                android:layout_marginTop="@dimen/space_lg"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <!-- Row 3: Contacts (full-width tile) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnContacts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/corner_card_category"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:strokeWidth="@dimen/stroke_hairline"
+                    app:strokeColor="@color/card_stroke">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/card_padding"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_touch"
+                            android:layout_height="@dimen/icon_touch">
+                            <View
+                                android:layout_width="@dimen/icon_touch"
+                                android:layout_height="@dimen/icon_touch"
+                                android:background="@drawable/bg_icon_circle"
+                                android:backgroundTint="@color/icon_bg_contacts" />
+                            <ImageView
+                                android:layout_width="@dimen/icon_standard"
+                                android:layout_height="@dimen/icon_standard"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_contacts"
+                                app:tint="@color/icon_contacts" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/space_3xl">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Contacts"
+                                android:textSize="@dimen/text_heading_large"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Export contacts as VCF"
+                                android:textSize="@dimen/text_body"
+                                android:textColor="@color/text_secondary"
+                                android:layout_marginTop="@dimen/space_2xs" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_nav"
+                            android:layout_height="@dimen/icon_nav"
+                            android:src="@drawable/ic_arrow_right"
+                            app:tint="@color/text_hint" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- Selection bottom bar — frosted glass style -->
+        <LinearLayout
+            android:id="@+id/selectionBottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/bottom_bar_padding_horizontal"
+            android:paddingVertical="@dimen/space_3xl"
+            android:background="@drawable/bg_bottom_bar"
+            android:elevation="0dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/selectionInfoArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="@dimen/space_sm"
+                android:layout_marginBottom="@dimen/space_2xl">
+
+                <TextView
+                    android:id="@+id/selectionStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No files selected"
+                    android:textSize="@dimen/text_body_large"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/text_secondary" />
+
+                <ImageView
+                    android:id="@+id/ivEditSelection"
+                    android:layout_width="@dimen/icon_nav"
+                    android:layout_height="@dimen/icon_nav"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="@color/text_hint"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnClearSelection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height_primary"
+                    android:text="Clear"
+                    android:textSize="@dimen/text_body"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:enabled="false" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnContinue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height_primary"
+                    android:text="Continue"
+                    android:textSize="@dimen/text_body"
+                    android:enabled="false" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Theme transition overlay (old theme, behind) -->
+    <ImageView
+        android:id="@+id/themeOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        android:elevation="10dp" />
+
+    <!-- Theme transition overlay (new theme, revealed outward on top) -->
+    <ImageView
+        android:id="@+id/themeOverlayNew"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        android:elevation="11dp" />
+
+    <!-- Loading overlay — frosted glass modal -->
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/scrim"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="@dimen/loading_card_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/space_7xl"
+            android:background="@drawable/bg_loading_card">
+
+            <ProgressBar
+                android:id="@+id/progressBarLoading"
+                android:layout_width="@dimen/icon_touch"
+                android:layout_height="@dimen/icon_touch"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/primary" />
+
+            <TextView
+                android:id="@+id/tvLoadingMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4xl"
+                android:text="Processing..."
+                android:textSize="@dimen/text_heading"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_primary"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvLoadingDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:text=""
+                android:textSize="@dimen/text_body"
+                android:textColor="@color/text_secondary"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/btnCancelLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4xl"
+                android:text="Cancel"
+                style="@style/Widget.Material3.Button.TextButton" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

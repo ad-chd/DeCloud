@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <title>DeCloud</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="../assets/icon.png" alt="DeCloud" />
+            </div>
+            <h1 id="appNameTitle" class="clickable-title" title="About DeCloud">DeCloud</h1>
+            <span class="subtitle" id="subtitleText"><span class="tag-bold">Transfer.</span> <span class="tag-accent">Protect.</span> <span class="tag-bold">Repeat.</span></span>
+        </header>
+
+        <!-- About modal -->
+        <div class="about-overlay" id="aboutOverlay" hidden>
+            <div class="about-card" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+                <img class="about-logo" src="../assets/icon.png" alt="DeCloud" />
+                <h2 id="aboutTitle" class="about-title">DeCloud</h2>
+                <p class="about-tagline">
+                    <span class="tag-bold">Transfer.</span>
+                    <span class="tag-accent">Protect.</span>
+                    <span class="tag-bold">Repeat.</span>
+                </p>
+                <div class="about-divider"></div>
+                <p class="about-caption">MADE WITH CARE BY</p>
+                <p class="about-name">Aditya Chaudhary</p>
+                <p class="about-uni">IIT Roorkee</p>
+                <button class="about-email" id="aboutEmail" type="button">
+                    <span class="about-email-icon">✉</span>
+                    <span class="about-email-text">adityachaudhary703@gmail.com</span>
+                </button>
+                <p class="about-hint" id="aboutHint">Click to copy</p>
+                <button class="about-close" id="aboutClose" type="button">Close</button>
+            </div>
+        </div>
+
+        <!-- Transfer Direction Toggle -->
+        <section class="card direction-section">
+            <div class="direction-toggle">
+                <button class="direction-btn active" id="receiveBtn" data-direction="receive">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    <span>Receive from Phone</span>
+                </button>
+                <button class="direction-btn" id="sendBtn" data-direction="send">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <span>Send to Phone</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="card mode-section">
+            <h2>Transfer Mode</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn active" data-mode="wifi" id="wifiModeBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                        <circle cx="12" cy="20" r="1"/>
+                    </svg>
+                    <span>WiFi</span>
+                    <small>Wireless transfer</small>
+                </button>
+                <button class="mode-btn" data-mode="adb" id="adbModeBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="4" y="2" width="16" height="20" rx="2"/>
+                        <line x1="12" y1="18" x2="12" y2="18"/>
+                    </svg>
+                    <span>USB</span>
+                    <small>Cable transfer</small>
+                </button>
+            </div>
+        </section>
+
+        <section class="card connection-panel" id="wifiPanel">
+            <h2>WiFi Connection</h2>
+            <div class="input-group">
+                <label>Phone IP Address</label>
+                <div class="input-row">
+                    <input type="text" id="ipInput" placeholder="192.168.43.1" value="192.168.43.1" style="flex:1">
+                    <input type="hidden" id="portInput" value="64666">
+                </div>
+                <div class="input-with-btn" style="margin-top: 6px;">
+                    <button class="btn secondary" id="scanBtn" style="flex:1">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                        Auto-Scan
+                    </button>
+                    <button class="btn secondary" id="btScanBtn" style="flex:1">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6.5 6.5l11 11L12 23V1l5.5 5.5-11 11"/>
+                        </svg>
+                        BT Scan
+                    </button>
+                    <button class="btn secondary" id="connectBtn" style="flex:1">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        Connect
+                    </button>
+                </div>
+            </div>
+            <div class="connection-status" id="connectionStatus" style="margin: 6px 0 0; padding: 6px 10px; border-radius: 5px; display: none; font-size: 12px;"></div>
+        </section>
+
+        <section class="card connection-panel hidden" id="adbPanel">
+            <h2>USB Connection</h2>
+            <div class="input-group">
+                <label for="deviceSelect">Select Device</label>
+                <div class="input-with-btn">
+                    <select id="deviceSelect">
+                        <option value="">-- Click Refresh --</option>
+                    </select>
+                    <button class="btn secondary" id="refreshBtn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/>
+                        </svg>
+                        Refresh
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inline guide hint slot — hints injected here by JS -->
+        <div id="guideHintSlot"></div>
+
+        <!-- Receive Mode: Save Location -->
+        <section class="card" id="saveLocationSection">
+            <h2>Save Location</h2>
+            <div class="input-group" style="margin-bottom:0">
+                <div class="input-with-btn">
+                    <input type="text" id="destInput" placeholder="Select folder or type path...">
+                    <button class="btn secondary" id="browseBtn">Browse</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Send Mode: File Selection -->
+        <section class="card hidden" id="sendFilesSection">
+            <h2>Files to Send</h2>
+            <div class="send-controls">
+                <button class="btn secondary" id="addFilesBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="12" y1="18" x2="12" y2="12"/>
+                        <line x1="9" y1="15" x2="15" y2="15"/>
+                    </svg>
+                    Add Files
+                </button>
+                <button class="btn secondary" id="addFolderBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                        <line x1="12" y1="11" x2="12" y2="17"/>
+                        <line x1="9" y1="14" x2="15" y2="14"/>
+                    </svg>
+                    Add Folder
+                </button>
+                <button class="btn secondary" id="clearFilesBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"/>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    </svg>
+                    Clear All
+                </button>
+            </div>
+            <div class="send-file-list" id="sendFileList">
+                <div class="empty-list">Drag & drop files here, or use the buttons above to add files.</div>
+            </div>
+            <div class="send-summary" id="sendSummary">
+                <span id="sendFileCount">0 files</span>
+                <span id="sendTotalSize">0 B</span>
+            </div>
+        </section>
+
+        <section class="card adb-settings collapsed" id="adbSettingsPanel">
+            <div class="adb-header" id="adbSettingsToggle">
+                <h2>USB Settings</h2>
+                <div class="adb-header-right">
+                    <span class="adb-status-inline" id="adbStatusInline">Checking...</span>
+                    <svg class="adb-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+            </div>
+            <div class="adb-collapsible">
+                <div class="adb-status" id="adbStatusContainer">
+                    <div class="adb-status-row">
+                        <span class="adb-status-label">Status:</span>
+                        <span class="adb-status-value" id="adbStatusValue">Checking...</span>
+                    </div>
+                    <div class="adb-status-row">
+                        <span class="adb-status-label">Source:</span>
+                        <span class="adb-source-badge" id="adbSourceBadge">--</span>
+                    </div>
+                    <div class="adb-status-row">
+                        <span class="adb-status-label">Version:</span>
+                        <span class="adb-status-value" id="adbVersionValue">--</span>
+                    </div>
+                    <div class="adb-status-row">
+                        <span class="adb-status-label">Path:</span>
+                        <span class="adb-path-value" id="adbPathValue" title="">--</span>
+                    </div>
+                </div>
+                <div class="adb-buttons">
+                    <button class="btn secondary small" id="browseAdbBtn">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        Set USB Tool Path
+                    </button>
+                    <button class="btn secondary small" id="resetAdbBtn">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/>
+                        </svg>
+                        Auto-detect
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="card progress-section">
+            <h2>Transfer Progress</h2>
+            <div class="status-bar">
+                <span class="status-icon" id="statusIcon">●</span>
+                <span class="status-text" id="statusText">Ready</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="progress-stats">
+                <span id="filesProgress">Files: 0/0</span>
+                <span id="speedDisplay"></span>
+            </div>
+            <div class="current-file" id="currentFile"></div>
+        </section>
+
+        <div class="action-buttons">
+            <button class="btn primary large" id="startBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                Start Transfer
+            </button>
+            <button class="btn danger large hidden" id="cancelBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                </svg>
+                Cancel
+            </button>
+        </div>
+
+        <div class="log-strip" id="logContainer"></div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

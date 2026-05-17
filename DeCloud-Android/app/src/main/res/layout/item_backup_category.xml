@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/list_item_padding_horizontal"
+    android:paddingVertical="@dimen/list_item_padding_vertical"
+    android:background="?attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Category icon -->
+        <ImageView
+            android:id="@+id/ivCategoryIcon"
+            android:layout_width="@dimen/icon_touch"
+            android:layout_height="@dimen/icon_touch"
+            android:padding="@dimen/space_md"
+            android:src="@drawable/ic_image" />
+
+        <!-- Name, description, result -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/space_2xl"
+            android:layout_marginEnd="@dimen/space_lg">
+
+            <TextView
+                android:id="@+id/tvCategoryName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Images"
+                android:textSize="@dimen/text_body_large"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/tvCategoryDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photos, screenshots, downloaded images"
+                android:textSize="@dimen/text_hint"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="1dp"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <!-- Result row -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="3dp">
+
+                <ProgressBar
+                    android:id="@+id/progressScanning"
+                    android:layout_width="@dimen/icon_xs"
+                    android:layout_height="@dimen/icon_xs"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/primary"
+                    android:layout_marginEnd="@dimen/space_sm"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvCategoryResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scanning..."
+                    android:textSize="@dimen/text_caption"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/primary" />
+
+                <TextView
+                    android:id="@+id/tvExcluded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="@dimen/text_hint"
+                    android:textColor="@color/warning"
+                    android:layout_marginStart="@dimen/space_md"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Chevron (visible when row navigates to detail) -->
+        <ImageView
+            android:id="@+id/ivChevron"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_back"
+            android:rotation="180"
+            android:visibility="gone"
+            app:tint="@color/text_hint"
+            android:contentDescription="View files" />
+
+        <!-- Checkbox -->
+        <CheckBox
+            android:id="@+id/cbCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:buttonTint="@color/primary" />
+
+    </LinearLayout>
+
+</LinearLayout>

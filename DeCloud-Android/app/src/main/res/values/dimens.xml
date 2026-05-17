@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         SPACING (4dp base unit)
+         ════════════════════════════════════════════════════════════════════ -->
+    <dimen name="space_2xs">2dp</dimen>
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_sm">6dp</dimen>
+    <dimen name="space_md">8dp</dimen>
+    <dimen name="space_lg">10dp</dimen>
+    <dimen name="space_xl">12dp</dimen>
+    <dimen name="space_2xl">14dp</dimen>
+    <dimen name="space_3xl">16dp</dimen>
+    <dimen name="space_4xl">20dp</dimen>
+    <dimen name="space_5xl">24dp</dimen>
+    <dimen name="space_6xl">28dp</dimen>
+    <dimen name="space_7xl">32dp</dimen>
+    <dimen name="space_8xl">40dp</dimen>
+    <dimen name="space_9xl">48dp</dimen>
+    <dimen name="stroke_hairline">0.5dp</dimen>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         SCREEN-LEVEL PADDING
+         ════════════════════════════════════════════════════════════════════ -->
+    <dimen name="screen_padding_horizontal">20dp</dimen>
+    <dimen name="card_padding">20dp</dimen>
+    <dimen name="card_padding_compact">14dp</dimen>
+    <dimen name="dialog_padding">24dp</dimen>
+    <dimen name="list_item_padding_horizontal">20dp</dimen>
+    <dimen name="list_item_padding_vertical">12dp</dimen>
+    <dimen name="bottom_bar_padding_horizontal">20dp</dimen>
+    <dimen name="bottom_bar_padding_vertical">14dp</dimen>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         COMPONENT SIZES
+         ════════════════════════════════════════════════════════════════════ -->
+    <dimen name="toolbar_height">52dp</dimen>
+    <dimen name="button_height_primary">48dp</dimen>
+    <dimen name="button_height_large">52dp</dimen>
+    <dimen name="button_height_cta">54dp</dimen>
+    <dimen name="button_height_small">34dp</dimen>
+    <dimen name="button_height_medium">36dp</dimen>
+    <dimen name="loading_card_width">280dp</dimen>
+    <dimen name="recycler_bottom_padding">88dp</dimen>
+    <dimen name="progress_bar_height">6dp</dimen>
+    <dimen name="spinner_height">38dp</dimen>
+    <dimen name="filter_label_width">80dp</dimen>
+    <dimen name="touch_target_min">48dp</dimen>
+    <dimen name="qr_code_size">140dp</dimen>
+    <dimen name="result_list_height">140dp</dimen>
+    <dimen name="category_card_gap">5dp</dimen>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         CORNER RADII
+         ════════════════════════════════════════════════════════════════════ -->
+    <dimen name="corner_card_primary">20dp</dimen>
+    <dimen name="corner_card_secondary">16dp</dimen>
+    <dimen name="corner_card_tertiary">14dp</dimen>
+    <dimen name="corner_card_category">18dp</dimen>
+    <dimen name="corner_button_pill">24dp</dimen>
+    <dimen name="corner_loading_card">24dp</dimen>
+    <dimen name="corner_spinner">12dp</dimen>
+    <dimen name="corner_status_badge">20dp</dimen>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         ICON SIZES
+         ════════════════════════════════════════════════════════════════════ -->
+    <dimen name="icon_xs">14dp</dimen>
+    <dimen name="icon_sm">16dp</dimen>
+    <dimen name="icon_md">18dp</dimen>
+    <dimen name="icon_nav">20dp</dimen>
+    <dimen name="icon_status">22dp</dimen>
+    <dimen name="icon_standard">24dp</dimen>
+    <dimen name="icon_compact">28dp</dimen>
+    <dimen name="icon_list">36dp</dimen>
+    <dimen name="icon_action">40dp</dimen>
+    <dimen name="icon_touch">44dp</dimen>
+    <dimen name="icon_circle_bg">48dp</dimen>
+    <dimen name="icon_large">56dp</dimen>
+    <dimen name="icon_hero">64dp</dimen>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         TEXT SIZES
+         ════════════════════════════════════════════════════════════════════ -->
+    <dimen name="text_micro">11sp</dimen>
+    <dimen name="text_hint">12sp</dimen>
+    <dimen name="text_caption">13sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_body_large">15sp</dimen>
+    <dimen name="text_heading">16sp</dimen>
+    <dimen name="text_heading_large">17sp</dimen>
+    <dimen name="text_subtitle">18sp</dimen>
+    <dimen name="text_title_error">20sp</dimen>
+    <dimen name="text_stat">22sp</dimen>
+    <dimen name="text_title">28sp</dimen>
+    <dimen name="text_button">14sp</dimen>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         TABLET CONSTRAINT
+         ════════════════════════════════════════════════════════════════════ -->
+    <dimen name="content_max_width">0dp</dimen>
+
+</resources>

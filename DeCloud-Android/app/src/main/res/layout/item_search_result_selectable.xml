@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/list_item_padding_horizontal"
+    android:paddingVertical="@dimen/list_item_padding_vertical"
+    android:gravity="center_vertical"
+    android:background="?attr/selectableItemBackground">
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_2xl"
+        android:buttonTint="@color/primary" />
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/icon_action"
+        android:layout_height="@dimen/icon_action"
+        android:src="@drawable/ic_file"
+        android:scaleType="centerCrop"
+        app:tint="@color/primary" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/space_2xl">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="filename.txt"
+            android:textSize="@dimen/text_body_large"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text_primary"
+            android:maxLines="1"
+            android:ellipsize="middle" />
+
+        <TextView
+            android:id="@+id/tvPath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="/path/to/file"
+            android:textSize="@dimen/text_hint"
+            android:textColor="@color/text_hint"
+            android:maxLines="1"
+            android:ellipsize="start"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            android:id="@+id/tvSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1.5 MB"
+            android:textSize="@dimen/text_caption"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="@dimen/space_2xs" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivArrow"
+        android:layout_width="@dimen/icon_nav"
+        android:layout_height="@dimen/icon_nav"
+        android:src="@drawable/ic_arrow_right"
+        app:tint="@color/text_hint"
+        android:visibility="gone" />
+
+</LinearLayout>

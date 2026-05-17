@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Clean toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/background"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="Backup Summary"
+            app:titleTextColor="@color/text_primary"
+            app:navigationIconTint="@color/text_primary" />
+
+        <!-- Scanning progress section -->
+        <LinearLayout
+            android:id="@+id/scanningSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/space_5xl"
+            android:paddingVertical="@dimen/space_xl"
+            android:background="@color/surface_variant">
+
+            <ProgressBar
+                android:layout_width="@dimen/icon_md"
+                android:layout_height="@dimen/icon_md"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/primary" />
+
+            <TextView
+                android:id="@+id/tvScanningStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scanning categories..."
+                android:textSize="@dimen/text_body"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_primary"
+                android:layout_marginStart="@dimen/space_xl" />
+
+        </LinearLayout>
+
+        <!-- Category list -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewCategories"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingVertical="@dimen/space_md" />
+
+        <!-- Totals + Continue -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_bottom_bar"
+            android:paddingHorizontal="@dimen/bottom_bar_padding_horizontal"
+            android:paddingVertical="@dimen/space_3xl">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/totalsCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/corner_card_secondary"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/surface_variant"
+                app:strokeWidth="@dimen/stroke_hairline"
+                app:strokeColor="@color/card_stroke"
+                android:layout_marginBottom="@dimen/space_3xl">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/card_padding_compact">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvTotalFiles"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--"
+                            android:textSize="@dimen/text_stat"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Files"
+                            android:textSize="@dimen/text_hint"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="@dimen/space_2xs" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/stroke_hairline"
+                        android:layout_height="match_parent"
+                        android:background="@color/divider" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvTotalSize"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--"
+                            android:textSize="@dimen/text_stat"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Size"
+                            android:textSize="@dimen/text_hint"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="@dimen/space_2xs" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/stroke_hairline"
+                        android:layout_height="match_parent"
+                        android:background="@color/divider" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvTotalExcluded"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--"
+                            android:textSize="@dimen/text_stat"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/warning" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Excluded"
+                            android:textSize="@dimen/text_hint"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="@dimen/space_2xs" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:id="@+id/btnContinue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height_large"
+                android:text="Continue"
+                android:textSize="@dimen/text_body_large"
+                android:enabled="false" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Loading overlay -->
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="@dimen/loading_card_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/space_7xl"
+            android:background="@drawable/bg_loading_card">
+
+            <ProgressBar
+                android:layout_width="@dimen/icon_touch"
+                android:layout_height="@dimen/icon_touch"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/primary" />
+
+            <TextView
+                android:id="@+id/tvLoadingMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4xl"
+                android:text="Preparing backup..."
+                android:textSize="@dimen/text_heading"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_primary"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvLoadingDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:text=""
+                android:textSize="@dimen/text_body"
+                android:textColor="@color/text_secondary"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/btnCancelLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4xl"
+                android:text="Cancel"
+                style="@style/Widget.Material3.Button.TextButton" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Storage permissions -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+
+    <!-- Contacts permission (for backup) -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- Network permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <!-- Location permissions (required for LocalOnlyHotspot) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Android 13+ nearby devices permission -->
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="tiramisu" />
+
+    <!-- Bluetooth permissions (for BT discovery fallback) -->
+    <uses-permission android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
+
+    <!-- Keep alive permissions -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DeCloud"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+
+        <!-- Splash Activity (Launcher - shown first) -->
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout|orientation"
+            android:theme="@style/Theme.DeCloud.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Mode Selection Activity (shown before transfer) -->
+        <activity
+            android:name=".ui.ModeSelectionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout"
+            android:theme="@style/Theme.DeCloud" />
+
+        <!-- Main Activity (landing page) -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout"
+            android:theme="@style/Theme.DeCloud" />
+
+        <!-- Browse Files Activity -->
+        <activity
+            android:name=".ui.BrowseActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout"
+            android:theme="@style/Theme.DeCloud" />
+
+        <!-- Ready To Send Activity (critical: must survive rotation during transfer) -->
+        <activity
+            android:name=".ui.ReadyToSendActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout"
+            android:theme="@style/Theme.DeCloud" />
+
+        <!-- Backup Summary Activity -->
+        <activity
+            android:name=".ui.BackupSummaryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout"
+            android:theme="@style/Theme.DeCloud" />
+
+        <!-- Category Activity -->
+        <activity
+            android:name=".ui.CategoryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout"
+            android:theme="@style/Theme.DeCloud" />
+
+        <!-- Selection Activity -->
+        <activity
+            android:name=".ui.SelectionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout"
+            android:theme="@style/Theme.DeCloud" />
+
+        <!-- Search Activity -->
+        <activity
+            android:name=".ui.SearchActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:theme="@style/Theme.DeCloud" />
+
+        <!-- Receive Activity -->
+        <activity
+            android:name=".ui.ReceiveActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout"
+            android:theme="@style/Theme.DeCloud" />
+
+        <!-- Transfer Service -->
+        <service
+            android:name=".service.TransferService"
+            android:enabled="true"
+            android:exported="false"
+            android:stopWithTask="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!-- Receive Service -->
+        <service
+            android:name=".service.ReceiveService"
+            android:enabled="true"
+            android:exported="false"
+            android:stopWithTask="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!-- ADB Transfer Service -->
+        <service
+            android:name=".service.AdbTransferService"
+            android:enabled="true"
+            android:exported="false"
+            android:stopWithTask="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!-- ADB Command Receiver -->
+        <receiver
+            android:name=".receiver.AdbCommandReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.decloud.PREPARE" />
+                <action android:name="com.decloud.CLEANUP" />
+                <action android:name="com.decloud.STATUS" />
+                <action android:name="com.decloud.USB_RECEIVE_START" />
+                <action android:name="com.decloud.USB_FILE_RECEIVED" />
+                <action android:name="com.decloud.USB_RECEIVE_DONE" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
