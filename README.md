@@ -13,6 +13,10 @@ Move files between your Android phone and your Windows PC over local WiFi or USB
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android%20%7C%20Windows-lightgrey.svg)]()
+[![GitHub release](https://img.shields.io/github/v/release/ad-chd/DeCloud?label=release)](https://github.com/ad-chd/DeCloud/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/ad-chd/DeCloud/total?label=downloads)](https://github.com/ad-chd/DeCloud/releases)
+[![Stars](https://img.shields.io/github/stars/ad-chd/DeCloud?style=flat&logo=github)](https://github.com/ad-chd/DeCloud/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/ad-chd/DeCloud)](https://github.com/ad-chd/DeCloud/commits/main)
 
 <br /><br />
 
@@ -140,6 +144,16 @@ Bug reports and pull requests are welcome. See [CONTRIBUTING.md](./CONTRIBUTING.
 DeCloud is licensed under the [Apache License 2.0](./LICENSE).
 
 You're free to use, modify, and redistribute it, including in commercial products. Just keep the copyright notice and follow the terms in [NOTICE](./NOTICE).
+
+---
+
+## Repository activity
+
+<div align="center">
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ad-chd/DeCloud&type=Date)](https://star-history.com/#ad-chd/DeCloud&Date)
+
+</div>
 
 ---
 
