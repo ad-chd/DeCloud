@@ -78,12 +78,13 @@ The desktop companion is bundled in the [GitHub Releases](../../releases/latest)
 
 ## Watch the walkthrough
 
-📺 **Full app walkthrough on YouTube:** _coming soon_
+<div align="center">
 
-<!--
-Once the YouTube video is up, replace the line above with:
-[![Watch the walkthrough](docs/screenshots/front.jpg)](https://youtu.be/YOUR_VIDEO_ID)
--->
+[![DeCloud — full walkthrough on YouTube](https://img.youtube.com/vi/FiuMh-KfyUQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=FiuMh-KfyUQ)
+
+▶ **[Watch on YouTube](https://www.youtube.com/watch?v=FiuMh-KfyUQ)** — full 2-minute walkthrough: setup, transfer, verify.
+
+</div>
 
 ---
 
