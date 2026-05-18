@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/background">
+
+        <!-- Clean toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/background"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="Category"
+            app:titleTextColor="@color/text_primary"
+            app:navigationIconTint="@color/text_primary"
+            app:contentInsetStartWithNavigation="0dp"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <!-- Action bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/space_3xl"
+            android:paddingVertical="@dimen/space_sm"
+            android:background="@color/surface"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvFileCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 files"
+                android:textSize="@dimen/text_body"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_secondary" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnSelectAll"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_height_medium"
+                android:text="Select All"
+                android:textSize="@dimen/text_caption"
+                style="@style/Widget.Material3.Button.TextButton" />
+
+            <Button
+                android:id="@+id/btnDeselectAll"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_height_medium"
+                android:text="Deselect"
+                android:textSize="@dimen/text_caption"
+                android:enabled="false"
+                style="@style/Widget.Material3.Button.TextButton" />
+
+            <ImageButton
+                android:id="@+id/btnSort"
+                android:layout_width="@dimen/icon_action"
+                android:layout_height="@dimen/icon_action"
+                android:src="@drawable/ic_sort"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/space_md"
+                android:contentDescription="Sort"
+                app:tint="@color/text_secondary" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/stroke_hairline"
+            android:background="@color/divider" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="@dimen/recycler_bottom_padding" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="@dimen/icon_touch"
+                android:layout_height="@dimen/icon_touch"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/primary"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvEmptyState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="No files found"
+                android:textSize="@dimen/text_heading"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_hint"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+        <!-- Selection bar -->
+        <LinearLayout
+            android:id="@+id/selectionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/bottom_bar_padding_horizontal"
+            android:paddingVertical="@dimen/bottom_bar_padding_vertical"
+            android:background="@drawable/bg_bottom_bar"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvSelectionCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No files selected"
+                android:textSize="@dimen/text_body_large"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/btnReadyToSend"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_height_primary"
+                android:text="Ready to Send"
+                android:textSize="@dimen/text_body"
+                android:enabled="false" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Loading overlay -->
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="@dimen/loading_card_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/space_7xl"
+            android:background="@drawable/bg_loading_card">
+
+            <ProgressBar
+                android:id="@+id/progressBarLoading"
+                android:layout_width="@dimen/icon_touch"
+                android:layout_height="@dimen/icon_touch"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/primary" />
+
+            <TextView
+                android:id="@+id/tvLoadingMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4xl"
+                android:text="Processing..."
+                android:textSize="@dimen/text_heading"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_primary"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvLoadingDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:text=""
+                android:textSize="@dimen/text_body"
+                android:textColor="@color/text_secondary"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/btnCancelLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4xl"
+                android:text="Cancel"
+                style="@style/Widget.Material3.Button.TextButton" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

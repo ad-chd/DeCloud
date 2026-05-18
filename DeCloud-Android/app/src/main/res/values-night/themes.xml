@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.DeCloud" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <!-- Pill-shaped buttons globally -->
+        <item name="materialButtonStyle">@style/Widget.DeCloud.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.DeCloud.Button.Outlined</item>
+    </style>
+
+    <!-- Primary filled button — pill shape -->
+    <style name="Widget.DeCloud.Button" parent="Widget.Material3.Button">
+        <item name="cornerRadius">@dimen/corner_button_pill</item>
+        <item name="android:paddingHorizontal">@dimen/space_5xl</item>
+    </style>
+
+    <!-- Outlined button — pill shape -->
+    <style name="Widget.DeCloud.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">@dimen/corner_button_pill</item>
+        <item name="android:paddingHorizontal">@dimen/space_5xl</item>
+        <item name="strokeColor">@color/divider</item>
+    </style>
+
+    <!-- Tonal button — pill shape -->
+    <style name="Widget.DeCloud.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
+        <item name="cornerRadius">@dimen/corner_button_pill</item>
+        <item name="android:paddingHorizontal">@dimen/space_5xl</item>
+    </style>
+
+    <!-- Text button -->
+    <style name="Widget.DeCloud.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="cornerRadius">@dimen/corner_button_pill</item>
+    </style>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         COMPONENT STYLES
+         ════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Card — primary glass style -->
+    <style name="Widget.DeCloud.Card" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">@dimen/corner_card_primary</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="strokeWidth">@dimen/stroke_hairline</item>
+        <item name="strokeColor">@color/card_stroke</item>
+    </style>
+
+    <style name="Widget.DeCloud.Card.Secondary" parent="Widget.DeCloud.Card">
+        <item name="cardCornerRadius">@dimen/corner_card_secondary</item>
+    </style>
+
+    <style name="Widget.DeCloud.Card.Selectable" parent="Widget.DeCloud.Card">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="rippleColor">@color/ripple_primary</item>
+    </style>
+
+    <style name="Widget.DeCloud.IconButton" parent="">
+        <item name="android:background">@drawable/ripple_icon</item>
+        <item name="android:padding">@dimen/space_md</item>
+        <item name="android:minWidth">@dimen/touch_target_min</item>
+        <item name="android:minHeight">@dimen/touch_target_min</item>
+    </style>
+
+    <style name="Widget.DeCloud.Spinner" parent="">
+        <item name="android:background">@drawable/bg_spinner_dark</item>
+        <item name="android:minHeight">@dimen/spinner_height</item>
+        <item name="android:paddingStart">@dimen/space_xl</item>
+        <item name="android:paddingEnd">@dimen/space_7xl</item>
+        <item name="android:popupBackground">@color/surface</item>
+    </style>
+
+    <style name="Widget.DeCloud.Banner" parent="">
+        <item name="android:paddingHorizontal">@dimen/screen_padding_horizontal</item>
+        <item name="android:paddingVertical">@dimen/space_lg</item>
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         TEXT APPEARANCE STYLES
+         ════════════════════════════════════════════════════════════════════ -->
+
+    <style name="TextAppearance.DeCloud.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.DeCloud.Stat" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">@dimen/text_stat</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="TextAppearance.DeCloud.Subtitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/text_subtitle</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.DeCloud.HeadingLarge" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/text_heading_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.DeCloud.Heading" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textSize">@dimen/text_heading</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.DeCloud.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">@dimen/text_body_large</item>
+    </style>
+
+    <style name="TextAppearance.DeCloud.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_body</item>
+    </style>
+
+    <style name="TextAppearance.DeCloud.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="TextAppearance.DeCloud.Hint" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_hint</item>
+        <item name="android:textColor">@color/text_hint</item>
+    </style>
+
+    <style name="TextAppearance.DeCloud.Micro" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">@dimen/text_micro</item>
+    </style>
+
+    <style name="TextAppearance.DeCloud.Button" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">@dimen/text_button</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+</resources>

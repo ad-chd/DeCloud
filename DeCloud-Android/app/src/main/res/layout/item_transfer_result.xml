@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/space_2xl"
+    android:paddingVertical="@dimen/space_lg"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/ivStatus"
+        android:layout_width="@dimen/icon_status"
+        android:layout_height="@dimen/icon_status"
+        android:src="@drawable/ic_check_circle"
+        android:layout_marginEnd="@dimen/space_2xl" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvFileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_body"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text_primary"
+            android:ellipsize="middle"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/tvFilePath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_hint"
+            android:textColor="@color/text_hint"
+            android:ellipsize="start"
+            android:singleLine="true"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</LinearLayout>

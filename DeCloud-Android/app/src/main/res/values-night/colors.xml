@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Apple-inspired Dark Theme Palette -->
+
+    <!-- Primary accent — brighter blue for dark backgrounds -->
+    <color name="primary">#0A84FF</color>
+    <color name="primary_dark">#1C1C1E</color>
+    <color name="primary_light">#0A84FF</color>
+    <color name="accent">#FF9F0A</color>
+
+    <!-- Backgrounds — deep blacks like iOS dark mode -->
+    <color name="background">#000000</color>
+    <color name="surface">#1C1C1E</color>
+    <color name="surface_variant">#2C2C2E</color>
+
+    <!-- Text hierarchy -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#8E8E93</color>
+    <color name="text_hint">#636366</color>
+    <color name="text_hint_light">#48484A</color>
+
+    <!-- File browser folder icon — muted, doesn't compete with text -->
+    <color name="folder_icon">#8E8E93</color>
+
+    <!-- Dividers -->
+    <color name="divider">#38383A</color>
+
+    <!-- Semantic colors — iOS dark variants -->
+    <color name="success">#30D158</color>
+    <color name="error">#FF453A</color>
+    <color name="warning">#FF9F0A</color>
+
+    <!-- Selection states -->
+    <color name="selection_highlight">#1A0A84FF</color>
+    <color name="highlight_blink">#330A84FF</color>
+
+    <!-- Glassmorphism elements -->
+    <color name="status_badge_bg">#33FFFFFF</color>
+    <color name="card_stroke">#1AFFFFFF</color>
+    <color name="glass_bg">#B31C1C1E</color>
+    <color name="glass_stroke">#26FFFFFF</color>
+    <color name="toolbar_bg">#1C1C1E</color>
+    <color name="bottom_bar_bg">#1C1C1E</color>
+
+    <!-- Category icon colors — vibrant for dark mode -->
+    <color name="icon_images">#30D158</color>
+    <color name="icon_videos">#FF453A</color>
+    <color name="icon_audio">#BF5AF2</color>
+    <color name="icon_documents">#0A84FF</color>
+    <color name="icon_downloads">#FF9F0A</color>
+    <color name="icon_apps">#64D2FF</color>
+    <color name="icon_contacts">#FF375F</color>
+    <color name="icon_messages">#30D158</color>
+    <color name="icon_call_logs">#FF9F0A</color>
+
+    <!-- Category icon background tints -->
+    <color name="icon_bg_images">#1A30D158</color>
+    <color name="icon_bg_videos">#1AFF453A</color>
+    <color name="icon_bg_audio">#1ABF5AF2</color>
+    <color name="icon_bg_documents">#1A0A84FF</color>
+    <color name="icon_bg_downloads">#1AFF9F0A</color>
+    <color name="icon_bg_apps">#1A64D2FF</color>
+    <color name="icon_bg_contacts">#1AFF375F</color>
+    <color name="icon_bg_messages">#1A30D158</color>
+    <color name="icon_bg_call_logs">#1AFF9F0A</color>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         STATUS / STATE COLORS (dark variants)
+         ════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Category card states -->
+    <color name="state_selected_bg">#1A30D158</color>
+    <color name="state_selected_stroke">#30D158</color>
+    <color name="state_denied_bg">#1AFF453A</color>
+    <color name="state_denied_stroke">#FF453A</color>
+
+    <!-- Mode selection accents -->
+    <color name="mode_wifi_accent">#0A84FF</color>
+    <color name="mode_adb_accent">#30D158</color>
+
+    <!-- Connection warning banners -->
+    <color name="banner_warning_bg">#332C2C2E</color>
+    <color name="banner_warning_text">#FF9F0A</color>
+    <color name="banner_hotspot_bg">#1A30D158</color>
+    <color name="banner_hotspot_text">#30D158</color>
+    <color name="banner_wifi_bg">#1A0A84FF</color>
+    <color name="banner_wifi_text">#0A84FF</color>
+    <color name="banner_usb_bg">#1A0A84FF</color>
+    <color name="banner_usb_text">#0A84FF</color>
+    <color name="banner_error_bg">#1AFF453A</color>
+    <color name="banner_error_text">#FF453A</color>
+
+    <!-- Transfer states -->
+    <color name="transfer_ready_bg">#1A30D158</color>
+    <color name="transfer_ready_text">#30D158</color>
+    <color name="transfer_active_bg">#1A0A84FF</color>
+    <color name="transfer_active_text">#0A84FF</color>
+
+    <!-- Overlay / scrim -->
+    <color name="scrim">#B3000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Ripple -->
+    <color name="ripple_primary">#220A84FF</color>
+
+    <!-- Disabled state -->
+    <color name="disabled_bg">#2C2C2E</color>
+    <color name="disabled_text">#48484A</color>
+</resources>

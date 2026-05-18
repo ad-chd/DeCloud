@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/space_xl"
+    android:paddingVertical="@dimen/space_lg"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="@dimen/icon_list"
+        android:layout_height="@dimen/icon_list"
+        android:src="@drawable/ic_document"
+        app:tint="@color/primary" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/space_xl">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="filename.jpg"
+            android:textSize="@dimen/text_body"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text_primary"
+            android:singleLine="true"
+            android:ellipsize="middle" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_hint"
+            android:textColor="@color/text_secondary"
+            android:singleLine="true"
+            android:visibility="gone"
+            android:layout_marginTop="1dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2.4 MB"
+        android:textSize="@dimen/text_hint"
+        android:textColor="@color/text_hint"
+        android:layout_marginEnd="@dimen/space_lg" />
+
+    <ImageButton
+        android:id="@+id/btnRemove"
+        android:layout_width="@dimen/touch_target_min"
+        android:layout_height="@dimen/touch_target_min"
+        android:src="@drawable/ic_close"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/space_sm"
+        android:contentDescription="Remove file"
+        app:tint="@color/text_hint" />
+
+</LinearLayout>

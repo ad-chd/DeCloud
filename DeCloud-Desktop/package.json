@@ -1,0 +1,65 @@
+{
+  "name": "decloud",
+  "version": "2.0.0",
+  "description": "Fast file transfer between Android and PC via WiFi or USB",
+  "main": "src/main.js",
+  "author": "DeCloud",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx electron .",
+    "build": "npx electron-builder",
+    "build:win": "npx electron-builder --win",
+    "build:installer": "npx electron-builder --win nsis",
+    "build:portable": "npx electron-builder --win portable",
+    "pack": "npx electron-builder --dir"
+  },
+  "build": {
+    "appId": "com.decloud.desktop",
+    "productName": "DeCloud",
+    "copyright": "Copyright © 2024 DeCloud",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/adb",
+        "to": "adb",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "artifactName": "DeCloud-Setup-${version}.exe"
+    },
+    "portable": {
+      "artifactName": "DeCloud-Portable-${version}.exe"
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  }
+}

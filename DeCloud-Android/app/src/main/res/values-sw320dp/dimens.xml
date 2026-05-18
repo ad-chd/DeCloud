@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Small phones (320-419dp width, ~4.7-5.4" screens): tighter spacing to prevent clipping -->
+
+    <!-- Reduced padding -->
+    <dimen name="screen_padding_horizontal">16dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="card_padding_compact">12dp</dimen>
+    <dimen name="dialog_padding">20dp</dimen>
+    <dimen name="list_item_padding_horizontal">16dp</dimen>
+    <dimen name="bottom_bar_padding_horizontal">16dp</dimen>
+
+    <!-- Smaller spacing -->
+    <dimen name="space_5xl">20dp</dimen>
+    <dimen name="space_6xl">24dp</dimen>
+    <dimen name="space_7xl">28dp</dimen>
+    <dimen name="space_8xl">32dp</dimen>
+    <dimen name="space_9xl">40dp</dimen>
+
+    <!-- Slightly smaller components -->
+    <dimen name="toolbar_height">48dp</dimen>
+    <dimen name="button_height_cta">48dp</dimen>
+    <dimen name="icon_hero">56dp</dimen>
+    <dimen name="icon_circle_bg">44dp</dimen>
+    <dimen name="loading_card_width">260dp</dimen>
+    <dimen name="qr_code_size">120dp</dimen>
+    <dimen name="result_list_height">120dp</dimen>
+
+    <!-- Slightly smaller text for tight screens -->
+    <dimen name="text_title">24sp</dimen>
+    <dimen name="text_stat">20sp</dimen>
+</resources>

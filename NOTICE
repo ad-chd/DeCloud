@@ -1,0 +1,30 @@
+DeCloud
+Copyright 2026 Aditya Chaudhary
+
+This product includes software developed as part of the DeCloud project
+(https://github.com/ad-chd/DeCloud).
+
+Licensed under the Apache License, Version 2.0 (the "License").
+See the LICENSE file in this repository for the full license text.
+
+----------------------------------------------------------------------
+Third-party components used by this project:
+----------------------------------------------------------------------
+
+Android app (DeCloud-Android):
+  - NanoHTTPD (BSD-3-Clause) — https://github.com/NanoHttpd/nanohttpd
+  - AndroidX libraries (Apache-2.0) — https://developer.android.com/jetpack/androidx
+  - Material Components for Android (Apache-2.0) — https://github.com/material-components/material-components-android
+  - Kotlin Coroutines (Apache-2.0) — https://github.com/Kotlin/kotlinx.coroutines
+  - ZXing Core (Apache-2.0) — https://github.com/zxing/zxing
+
+Desktop app (DeCloud-Desktop):
+  - Electron (MIT) — https://github.com/electron/electron
+  - sharp (Apache-2.0) — https://github.com/lovell/sharp
+  - png-to-ico (MIT) — https://github.com/steambap/png-to-ico
+  - electron-builder (MIT) — https://github.com/electron-userland/electron-builder
+
+Bundled binaries:
+  - ADB (Android Debug Bridge) — Part of Google's Android Platform Tools.
+    Distributed under the Apache License 2.0.
+    https://developer.android.com/tools/releases/platform-tools

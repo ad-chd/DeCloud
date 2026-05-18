@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Clean toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/background"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="Receive from PC"
+            app:titleTextColor="@color/text_primary"
+            app:navigationIconTint="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/connectionWarning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/screen_padding_horizontal"
+            android:paddingVertical="@dimen/list_item_padding_vertical"
+            android:background="@color/banner_warning_bg"
+            android:textColor="@color/banner_warning_text"
+            android:textSize="@dimen/text_body"
+            android:fontFamily="sans-serif"
+            android:visibility="gone" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding">
+
+                <!-- Mode Selection (WiFi or USB) -->
+                <LinearLayout
+                    android:id="@+id/layoutModeSelection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Choose transfer method"
+                        android:textSize="@dimen/text_heading"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="@dimen/space_3xl" />
+
+                    <!-- WiFi Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardModeWifi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/corner_card_primary"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:strokeWidth="@dimen/stroke_hairline"
+                        app:strokeColor="@color/card_stroke"
+                        android:layout_marginBottom="@dimen/space_xl"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/card_padding"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_action"
+                                android:layout_height="@dimen/icon_action"
+                                android:src="@drawable/ic_wifi"
+                                app:tint="@color/primary"
+                                android:contentDescription="WiFi" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="@dimen/space_3xl">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Wi-Fi"
+                                    android:textSize="@dimen/text_heading_large"
+                                    android:textStyle="bold"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:textColor="@color/text_primary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Receive over Wi-Fi or Hotspot"
+                                    android:textSize="@dimen/text_caption"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="@dimen/space_2xs" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_standard"
+                                android:layout_height="@dimen/icon_standard"
+                                android:src="@drawable/ic_arrow_right"
+                                app:tint="@color/text_secondary"
+                                android:contentDescription="Go" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- USB Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardModeUsb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/corner_card_primary"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:strokeWidth="@dimen/stroke_hairline"
+                        app:strokeColor="@color/card_stroke"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/card_padding"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_action"
+                                android:layout_height="@dimen/icon_action"
+                                android:src="@drawable/ic_usb"
+                                app:tint="@color/primary"
+                                android:contentDescription="USB" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="@dimen/space_3xl">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="USB"
+                                    android:textSize="@dimen/text_heading_large"
+                                    android:textStyle="bold"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:textColor="@color/text_primary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Receive over USB cable (ADB)"
+                                    android:textSize="@dimen/text_caption"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="@dimen/space_2xs" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_standard"
+                                android:layout_height="@dimen/icon_standard"
+                                android:src="@drawable/ic_arrow_right"
+                                app:tint="@color/text_secondary"
+                                android:contentDescription="Go" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <!-- USB Instructions panel -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardUsbInstructions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_5xl"
+                    app:cardCornerRadius="@dimen/corner_card_primary"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:strokeWidth="@dimen/stroke_hairline"
+                    app:strokeColor="@color/card_stroke"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="How to receive via USB"
+                            android:textSize="@dimen/text_body_large"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/text_primary"
+                            android:layout_marginBottom="@dimen/space_2xl" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1. Connect phone to PC via USB cable"
+                            android:textSize="@dimen/text_caption"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginBottom="@dimen/space_md" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2. Enable USB Debugging in Developer Options"
+                            android:textSize="@dimen/text_caption"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginBottom="@dimen/space_md" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='3. Open DeCloud on PC, switch to "Send to Phone"'
+                            android:textSize="@dimen/text_caption"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginBottom="@dimen/space_md" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='4. Select USB mode, pick files, and click "Start Transfer"'
+                            android:textSize="@dimen/text_caption"
+                            android:textColor="@color/text_secondary" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Connection Info Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardConnectionInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/corner_card_primary"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:strokeWidth="@dimen/stroke_hairline"
+                    app:strokeColor="@color/card_stroke"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvIpAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="192.168.43.1"
+                            android:textSize="@dimen/text_stat"
+                            android:textStyle="bold"
+                            android:fontFamily="monospace"
+                            android:textColor="@color/primary" />
+
+                        <TextView
+                            android:id="@+id/tvConnectionType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wi-Fi Hotspot"
+                            android:textSize="@dimen/text_caption"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/primary"
+                            android:layout_marginTop="@dimen/space_sm"
+                            android:paddingHorizontal="@dimen/space_2xl"
+                            android:paddingVertical="@dimen/space_xs"
+                            android:background="@drawable/bg_status_badge" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- QR Code -->
+                <ImageView
+                    android:id="@+id/ivQrCode"
+                    android:layout_width="@dimen/qr_code_size"
+                    android:layout_height="@dimen/qr_code_size"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/space_4xl"
+                    android:background="@android:color/white"
+                    android:padding="@dimen/space_md"
+                    android:visibility="gone"
+                    android:contentDescription="QR Code" />
+
+                <TextView
+                    android:id="@+id/tvQrHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Scan QR or enter IP on PC"
+                    android:textSize="@dimen/text_caption"
+                    android:textColor="@color/text_secondary"
+                    android:textAlignment="center"
+                    android:layout_marginTop="@dimen/space_xl"
+                    android:visibility="gone" />
+
+                <!-- State panels -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_5xl">
+
+                    <!-- Waiting state -->
+                    <LinearLayout
+                        android:id="@+id/layoutWaiting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:visibility="gone">
+
+                        <ProgressBar
+                            android:layout_width="@dimen/icon_touch"
+                            android:layout_height="@dimen/icon_touch"
+                            android:indeterminate="true"
+                            android:indeterminateTint="@color/primary" />
+
+                        <TextView
+                            android:id="@+id/tvWaitingStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Starting receive server..."
+                            android:textSize="@dimen/text_heading"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/text_primary"
+                            android:layout_marginTop="@dimen/space_4xl" />
+
+                        <Button
+                            android:id="@+id/btnCancelWaiting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/button_height_primary"
+                            android:text="Stop Receiving"
+                            android:layout_marginTop="@dimen/space_4xl"
+                            style="@style/Widget.Material3.Button.OutlinedButton" />
+
+                    </LinearLayout>
+
+                    <!-- Receiving state -->
+                    <LinearLayout
+                        android:id="@+id/layoutReceiving"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvReceivedCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0 files"
+                                android:textSize="@dimen/text_title"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/primary" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/tvReceivedSize"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0 B"
+                                android:textSize="@dimen/text_body"
+                                android:textColor="@color/text_secondary" />
+
+                        </LinearLayout>
+
+                        <ProgressBar
+                            android:id="@+id/progressBarReceive"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/progress_bar_height"
+                            android:layout_marginVertical="@dimen/space_2xl"
+                            android:indeterminate="true"
+                            android:indeterminateTint="@color/primary"
+                            android:progressBackgroundTint="@color/divider" />
+
+                        <TextView
+                            android:id="@+id/tvCurrentReceiveFile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Receiving..."
+                            android:textSize="@dimen/text_body"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/text_primary"
+                            android:singleLine="true"
+                            android:ellipsize="middle" />
+
+                        <Button
+                            android:id="@+id/btnStopReceive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/button_height_primary"
+                            android:text="Stop Receiving"
+                            android:layout_marginTop="@dimen/space_4xl"
+                            android:layout_gravity="center"
+                            style="@style/Widget.Material3.Button.OutlinedButton" />
+
+                    </LinearLayout>
+
+                    <!-- Complete state -->
+                    <LinearLayout
+                        android:id="@+id/layoutComplete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="@dimen/space_2xl">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_touch"
+                                android:layout_height="@dimen/icon_touch"
+                                android:src="@drawable/ic_success" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="@dimen/space_2xl">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Receive Complete"
+                                    android:textSize="@dimen/text_subtitle"
+                                    android:textStyle="bold"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:textColor="@color/text_primary" />
+
+                                <TextView
+                                    android:id="@+id/tvCompleteMessage"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0 files received"
+                                    android:textSize="@dimen/text_body"
+                                    android:textColor="@color/text_secondary"
+                                    android:layout_marginTop="@dimen/space_2xs" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Stats card -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/card_padding_compact"
+                            android:background="@drawable/bg_glass_card"
+                            android:layout_marginBottom="@dimen/space_3xl">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/tvStatFiles"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textSize="@dimen/text_stat"
+                                    android:textStyle="bold"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:textColor="@color/success"
+                                    android:maxLines="1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Files"
+                                    android:textSize="@dimen/text_hint"
+                                    android:textColor="@color/text_secondary" />
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="@dimen/stroke_hairline"
+                                android:layout_height="match_parent"
+                                android:background="@color/divider" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/tvStatSize"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0 B"
+                                    android:textSize="@dimen/text_stat"
+                                    android:textStyle="bold"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:textColor="@color/primary"
+                                    android:maxLines="1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Size"
+                                    android:textSize="@dimen/text_hint"
+                                    android:textColor="@color/text_secondary" />
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="@dimen/stroke_hairline"
+                                android:layout_height="match_parent"
+                                android:background="@color/divider" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/tvStatDuration"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0s"
+                                    android:textSize="@dimen/text_stat"
+                                    android:textStyle="bold"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:textColor="@color/primary"
+                                    android:maxLines="1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Duration"
+                                    android:textSize="@dimen/text_hint"
+                                    android:textColor="@color/text_secondary" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/btnDone"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/button_height_large"
+                            android:text="Done"
+                            android:textSize="@dimen/text_body" />
+
+                    </LinearLayout>
+
+                    <!-- Error state -->
+                    <LinearLayout
+                        android:id="@+id/layoutError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_large"
+                            android:layout_height="@dimen/icon_large"
+                            android:src="@drawable/ic_error"
+                            app:tint="@color/error" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Receive Failed"
+                            android:textSize="@dimen/text_title_error"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/text_primary"
+                            android:layout_marginTop="@dimen/space_4xl" />
+
+                        <TextView
+                            android:id="@+id/tvErrorMessage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="An error occurred"
+                            android:textSize="@dimen/text_body"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="@dimen/space_md"
+                            android:gravity="center" />
+
+                        <Button
+                            android:id="@+id/btnRetry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/button_height_primary"
+                            android:text="Try Again"
+                            android:textSize="@dimen/text_body"
+                            android:layout_marginTop="@dimen/space_4xl" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <!-- Received Files list -->
+                <TextView
+                    android:id="@+id/tvReceivedFilesHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Received Files"
+                    android:textSize="@dimen/text_body_large"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="@dimen/space_5xl"
+                    android:layout_marginBottom="@dimen/space_lg"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewReceivedFiles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_glass_card"
+                    android:clipToPadding="false"
+                    android:padding="@dimen/space_md"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone" />
+
+                <!-- Instructions panel -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardInstructions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_5xl"
+                    app:cardCornerRadius="@dimen/corner_card_primary"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:strokeWidth="@dimen/stroke_hairline"
+                    app:strokeColor="@color/card_stroke">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="How to receive files"
+                            android:textSize="@dimen/text_body_large"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/text_primary"
+                            android:layout_marginBottom="@dimen/space_2xl" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1. Enable Wi-Fi Hotspot or connect PC to same network"
+                            android:textSize="@dimen/text_caption"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginBottom="@dimen/space_md" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='2. Open DeCloud on PC, switch to "Send to Phone"'
+                            android:textSize="@dimen/text_caption"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginBottom="@dimen/space_md" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3. Enter this phone's IP or scan QR code"
+                            android:textSize="@dimen/text_caption"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginBottom="@dimen/space_md" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='4. Select files on PC and click "Start Transfer"'
+                            android:textSize="@dimen/text_caption"
+                            android:textColor="@color/text_secondary" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

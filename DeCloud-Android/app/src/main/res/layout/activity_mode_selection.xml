@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <!-- ScrollView ensures content is accessible on small phones.
+         fillViewport=true keeps vertical centering on taller screens. -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:overScrollMode="ifContentScrolls">
+
+        <LinearLayout
+            android:id="@+id/layoutModeSelection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/screen_padding_horizontal"
+            android:paddingVertical="@dimen/space_8xl"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/icon_hero"
+                android:layout_height="@dimen/icon_hero"
+                android:src="@drawable/ic_transfer"
+                app:tint="@color/primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_5xl"
+                android:text="DeCloud"
+                android:textSize="@dimen/text_title"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="-0.02"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_md"
+                android:text="Select Transfer Mode"
+                android:textSize="@dimen/text_body_large"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_secondary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8xl"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardWifiMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_2xl"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/corner_card_primary"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:strokeWidth="@dimen/stroke_hairline"
+                    app:strokeColor="@color/card_stroke">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/card_padding">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_circle_bg"
+                            android:layout_height="@dimen/icon_circle_bg">
+                            <View
+                                android:layout_width="@dimen/icon_circle_bg"
+                                android:layout_height="@dimen/icon_circle_bg"
+                                android:background="@drawable/bg_icon_circle"
+                                android:backgroundTint="@color/icon_bg_documents" />
+                            <ImageView
+                                android:layout_width="@dimen/icon_standard"
+                                android:layout_height="@dimen/icon_standard"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_wifi"
+                                app:tint="@color/icon_documents" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/space_3xl"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="WiFi / Hotspot"
+                                android:textSize="@dimen/text_heading_large"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_xs"
+                                android:text="30-50 MB/s"
+                                android:textSize="@dimen/text_body"
+                                android:textColor="@color/text_secondary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_sm"
+                                android:text="No cable needed"
+                                android:textSize="@dimen/text_hint"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/icon_documents" />
+
+                        </LinearLayout>
+
+                        <RadioButton
+                            android:id="@+id/radioWifi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:buttonTint="@color/primary"
+                            android:clickable="false" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardAdbMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_2xl"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/corner_card_primary"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:strokeWidth="@dimen/stroke_hairline"
+                    app:strokeColor="@color/card_stroke">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/card_padding">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_circle_bg"
+                            android:layout_height="@dimen/icon_circle_bg">
+                            <View
+                                android:layout_width="@dimen/icon_circle_bg"
+                                android:layout_height="@dimen/icon_circle_bg"
+                                android:background="@drawable/bg_icon_circle"
+                                android:backgroundTint="@color/icon_bg_images" />
+                            <ImageView
+                                android:layout_width="@dimen/icon_standard"
+                                android:layout_height="@dimen/icon_standard"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_usb"
+                                app:tint="@color/icon_images" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/space_3xl"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="USB"
+                                android:textSize="@dimen/text_heading_large"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_xs"
+                                android:text="40-50 MB/s"
+                                android:textSize="@dimen/text_body"
+                                android:textColor="@color/text_secondary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_sm"
+                                android:text="USB debugging required"
+                                android:textSize="@dimen/text_hint"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/icon_images" />
+
+                        </LinearLayout>
+
+                        <RadioButton
+                            android:id="@+id/radioAdb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:buttonTint="@color/primary"
+                            android:clickable="false" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnContinue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height_cta"
+                android:layout_marginTop="@dimen/space_7xl"
+                android:text="Start Transfer"
+                android:textSize="@dimen/text_heading"
+                android:fontFamily="sans-serif-medium"
+                app:cornerRadius="@dimen/corner_button_pill" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/dialog_padding"
+    android:background="@color/surface">
+
+    <!-- Header with info icon -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="@dimen/icon_list"
+            android:layout_height="@dimen/icon_list"
+            android:src="@drawable/ic_info"
+            app:tint="@color/primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_xl"
+            android:text="Before you start"
+            android:textSize="@dimen/text_stat"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_primary" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_lg"
+        android:text="Your phone and PC must be on the same network for WiFi transfer to work."
+        android:textSize="@dimen/text_body"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="@dimen/space_2xs"
+        android:textColor="@color/text_secondary" />
+
+    <!-- Single instruction block -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/space_5xl"
+        android:background="@color/surface_variant"
+        android:paddingHorizontal="@dimen/space_3xl"
+        android:paddingVertical="@dimen/space_3xl">
+
+        <!-- Step: Hotspot (recommended) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top">
+
+            <ImageView
+                android:layout_width="@dimen/icon_xs"
+                android:layout_height="@dimen/icon_xs"
+                android:layout_marginTop="@dimen/space_xs"
+                android:src="@drawable/ic_wifi"
+                app:tint="@color/primary" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/space_xl"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Use Phone Hotspot"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_lg"
+                        android:text="Recommended"
+                        android:textSize="@dimen/text_micro"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/white"
+                        android:background="@drawable/bg_badge_pill"
+                        android:paddingHorizontal="@dimen/space_lg"
+                        android:paddingVertical="@dimen/space_2xs" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_xs"
+                    android:text="Turn on hotspot, connect PC to it, then open DeCloud on PC"
+                    android:textSize="@dimen/text_caption"
+                    android:fontFamily="sans-serif"
+                    android:lineSpacingExtra="@dimen/space_2xs"
+                    android:textColor="@color/text_secondary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/stroke_hairline"
+            android:layout_marginVertical="@dimen/space_xl"
+            android:background="@color/divider" />
+
+        <!-- Step: Same WiFi -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top">
+
+            <ImageView
+                android:layout_width="@dimen/icon_xs"
+                android:layout_height="@dimen/icon_xs"
+                android:layout_marginTop="@dimen/space_xs"
+                android:src="@drawable/ic_wifi"
+                app:tint="@color/text_hint" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/space_xl"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Or use same WiFi network"
+                    android:textSize="@dimen/text_body"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_xs"
+                    android:text="Connect both devices to the same WiFi router, then open DeCloud on PC"
+                    android:textSize="@dimen/text_caption"
+                    android:fontFamily="sans-serif"
+                    android:lineSpacingExtra="@dimen/space_2xs"
+                    android:textColor="@color/text_secondary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Understood button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGotIt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_primary"
+        android:layout_marginTop="@dimen/space_5xl"
+        android:text="Understood"
+        android:textSize="@dimen/text_body"
+        android:fontFamily="sans-serif-medium"
+        app:cornerRadius="@dimen/corner_button_pill" />
+
+</LinearLayout>

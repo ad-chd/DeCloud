@@ -1,0 +1,93 @@
+# ============================================================
+# DeCloud — .gitignore
+# ============================================================
+# Anything matched here will NOT be pushed to GitHub.
+# Critical: never commit keystores, signing keys, or passwords.
+# ============================================================
+
+# ---------- Android / Gradle ----------
+DeCloud-Android/.gradle/
+DeCloud-Android/build/
+DeCloud-Android/app/build/
+DeCloud-Android/captures/
+DeCloud-Android/.cxx/
+DeCloud-Android/local.properties
+DeCloud-Android/keystore.properties
+DeCloud-Android/release.properties
+*.apk
+*.aab
+*.dex
+
+# Keystores — NEVER commit these. Lose this in a public repo and the keystore is burned.
+*.keystore
+*.jks
+*.p12
+*.pfx
+google-services.json
+
+# ---------- Android Studio / IntelliJ ----------
+*.iml
+.idea/
+.idea_modules/
+
+# ---------- Kotlin / Java ----------
+*.class
+hs_err_pid*
+.kotlin/
+
+# ---------- Electron / Node ----------
+DeCloud-Desktop/node_modules/
+DeCloud-Desktop/dist/
+DeCloud-Desktop/out/
+DeCloud-Desktop/build/Release/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+
+# ---------- VS Code ----------
+.vscode/
+*.code-workspace
+
+# ---------- macOS / Windows / Linux noise ----------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# ---------- Environment & secrets ----------
+.env
+.env.local
+.env.*.local
+secrets.json
+*.pem
+*.key
+
+# ---------- Build artifacts & temp ----------
+*.log
+*.tmp
+*.bak
+.tmp/
+tmp/
+
+# ---------- DeCloud-specific outputs ----------
+# Test transfers, captured screenshots etc.
+test-output/
+captured-transfers/
+
+# ---------- Local-only working files ----------
+# Claude Code session data (never commit)
+.claude/
+# Root-level working copy of the logo (canonical source is DeCloud-Desktop/assets/logo-source.png)
+new logo.png
+# Source media folder (raw screenshots + full-resolution demo video).
+# Curated, compressed copies live in docs/screenshots/ and on YouTube.
+image and video/
+RELEASE_v1.0.0.md
+WALKTHROUGH_SCRIPT.md
+ELEVENLABS_SCRIPT.txt
+Demonstration.srt
+YOUTUBE_DESCRIPTION.txt

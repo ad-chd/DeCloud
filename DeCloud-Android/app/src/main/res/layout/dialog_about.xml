@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingHorizontal="@dimen/space_5xl"
+    android:paddingTop="@dimen/space_5xl"
+    android:paddingBottom="@dimen/space_4xl"
+    android:background="@color/surface">
+
+    <!-- Drag handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_marginBottom="@dimen/space_4xl"
+        android:background="@drawable/bg_icon_circle"
+        android:backgroundTint="@color/text_hint" />
+
+    <!-- App icon -->
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/ic_launcher"
+        android:contentDescription="DeCloud" />
+
+    <!-- App name -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_3xl"
+        android:text="DeCloud"
+        android:textSize="@dimen/text_title"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="-0.02"
+        android:textColor="@color/text_primary" />
+
+    <!-- Tagline (filled by code with the styled spannable) -->
+    <TextView
+        android:id="@+id/tvAboutTagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_xs"
+        android:textSize="@dimen/text_body_large"
+        android:fontFamily="sans-serif" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="60dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_4xl"
+        android:layout_marginBottom="@dimen/space_3xl"
+        android:background="@color/card_stroke" />
+
+    <!-- "Made with care by" caption -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MADE WITH CARE BY"
+        android:textSize="@dimen/text_caption"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.12"
+        android:textColor="@color/text_hint" />
+
+    <!-- Developer name -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_xs"
+        android:text="Aditya Chaudhary"
+        android:textSize="@dimen/text_heading_large"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/text_primary" />
+
+    <!-- University -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_2xs"
+        android:text="IIT Roorkee"
+        android:textSize="@dimen/text_body"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text_secondary" />
+
+    <!-- Email pill (tap to copy) -->
+    <LinearLayout
+        android:id="@+id/btnCopyEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_4xl"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/space_4xl"
+        android:paddingVertical="@dimen/space_lg"
+        android:background="@drawable/bg_filter_chip"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="@dimen/space_md"
+            android:src="@drawable/ic_message"
+            app:tint="@color/primary" />
+
+        <TextView
+            android:id="@+id/tvAboutEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="adityachaudhary703@gmail.com"
+            android:textSize="@dimen/text_body"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <!-- Tap to copy hint -->
+    <TextView
+        android:id="@+id/tvCopyHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_md"
+        android:text="Tap to copy"
+        android:textSize="@dimen/text_caption"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text_hint" />
+
+    <!-- Close button -->
+    <Button
+        android:id="@+id/btnAboutClose"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_primary"
+        android:layout_marginTop="@dimen/space_5xl"
+        android:text="Close"
+        android:textSize="@dimen/text_body"
+        style="@style/Widget.Material3.Button.OutlinedButton" />
+
+</LinearLayout>
