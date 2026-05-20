@@ -11,6 +11,8 @@
 DeCloud moves files between your Android phone and your Windows PC over local WiFi or USB.
 **No cloud. No accounts. No tracking. No internet required.**
 
+**⚡ Back up your entire phone in minutes, on your own network.**
+
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android%20%7C%20Windows-lightgrey.svg)]()
 [![GitHub release](https://img.shields.io/github/v/release/ad-chd/DeCloud?label=release)](https://github.com/ad-chd/DeCloud/releases/latest)
