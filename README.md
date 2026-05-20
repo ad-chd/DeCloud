@@ -8,7 +8,7 @@
 
 # DeCloud
 
-Move files between your Android phone and your Windows PC over local WiFi or USB.
+DeCloud moves files between your Android phone and your Windows PC over local WiFi or USB.
 **No cloud. No accounts. No tracking. No internet required.**
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
