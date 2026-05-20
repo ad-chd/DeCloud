@@ -90,35 +90,6 @@ The desktop companion is bundled in the [GitHub Releases](../../releases/latest)
 
 ---
 
-## How it works
-
-DeCloud is two single-process programs (Android app + Electron desktop) talking over standard protocols. No cloud, no broker, no backend.
-
-```mermaid
-flowchart LR
-    User([👤 User])
-    User --> Pick[Pick files or<br/>'Full Backup']
-    Pick --> Mode{Choose<br/>transfer mode}
-
-    Mode -->|Wi-Fi mode| W1[Phone creates hotspot<br/>or uses shared Wi-Fi]
-    Mode -->|USB mode| U1[Plug USB cable]
-
-    W1 --> W2[Phone boots HTTP server<br/>on port 8080]
-    W2 --> W3[Phone broadcasts its<br/>identity over UDP 8081]
-    W3 --> W4[Desktop auto-scans<br/>and locates the phone]
-
-    U1 --> U2[Desktop opens an ADB<br/>session to the phone]
-    U2 --> U3[ADB forwards a TCP socket<br/>to the same HTTP server]
-
-    W4 --> Stream[Phone streams selected files<br/>as one ZIP over the connection]
-    U3 --> Stream
-    Stream --> Done([✅ Files saved on PC<br/>1,745 files in 8.14 s])
-```
-
-**For the full sequence diagrams and component map** (what runs where, how discovery and ADB forwarding work, why one ZIP stream beats per-file MTP by 3000×), see **[docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)**.
-
----
-
 ## Build from source
 
 ### Android app
